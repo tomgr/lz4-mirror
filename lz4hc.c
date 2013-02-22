@@ -710,7 +710,8 @@ int LZ4_compressHC(const char* source,
                  int isize)
 {
     void* ctx = LZ4HC_Create((const BYTE*)source);
-    int result = LZ4_compressHCCtx(ctx, source, dest, isize);
+    int result =
+        LZ4_compressHCCtx((LZ4HC_Data_Structure*)ctx, source, dest, isize);
     LZ4HC_Free (&ctx);
 
     return result;
